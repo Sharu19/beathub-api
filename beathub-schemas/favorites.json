@@ -1,0 +1,8 @@
+{
+  "favoriteId": "string",
+  "userId": "userId",
+  "favoriteSongs": ["songId"],
+  "favoriteArtists": ["artistId"],
+  "favoriteAlbums": ["albumId"],
+  "createdAt": "ISODate"
+}
