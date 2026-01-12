@@ -1,0 +1,10 @@
+{
+  "artistId": "string",
+  "name": "string",
+  "genre": ["string"],
+  "bio": "string",
+  "debutYear": "number",
+  "country": "string",
+  "albums": ["albumId"],
+  "createdAt": "ISODate"
+}
