@@ -14,7 +14,13 @@ const albumSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Artist',
       required: true
-    }
+    },
+    songs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Song'
+      }
+    ]
   },
   { timestamps: true }
 );

@@ -1,11 +1,22 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
 
-const Artist = require('./models/Artist');
-const Album = require('./models/Album');
-const Song = require('./models/Song');
-const User = require('./models/User');
-const Playlist = require('./models/Playlist');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+if (!process.env.MONGODB_URI) {
+  dotenv.config({ path: path.resolve(__dirname, '.gitignore/.env') });
+}
+
+import Artist from './models/Artist.js';
+import Album from './models/Album.js';
+import Song from './models/Song.js';
+import User from './models/User.js';
+import Playlist from './models/Playlist.js';
 
 async function seedDB() {
   try {
@@ -30,6 +41,7 @@ async function seedDB() {
     // Create Album
     const album = await Album.create({
       title: 'First Album',
+      releaseYear: 2026,
       artist: artist._id,
       songs: []
     });
@@ -62,7 +74,7 @@ async function seedDB() {
     await Playlist.create({
       name: 'My Playlist',
       description: 'Seeded playlist',
-      owner: user._id,
+      createdBy: user._id,
       songs: [song._id]
     });
 

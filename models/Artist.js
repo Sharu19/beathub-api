@@ -1,25 +1,31 @@
-const express = require('express');
-const router = express.Router();
+import mongoose from 'mongoose';
 
-const {
-  createArtist,
-  getAllArtists,
-  getArtistById,
-  updateArtist,
-  deleteArtist
-} = require('../controllers/artist.controller');
+const artistSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    genre: {
+      type: String,
+      required: true
+    },
+    albums: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Album'
+      }
+    ],
+    songs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Song'
+      }
+    ]
+  },
+  { timestamps: true }
+);
 
-// CREATE
-router.post('/', createArtist);
+const Artist = mongoose.model('Artist', artistSchema);
 
-// READ
-router.get('/', getAllArtists);
-router.get('/:id', getArtistById);
-
-// UPDATE
-router.put('/:id', updateArtist);
-
-// DELETE
-router.delete('/:id', deleteArtist);
-
-module.exports = router;
+export default Artist;
