@@ -1,0 +1,11 @@
+{
+  "songId": "string",
+  "title": "string",
+  "duration": "number",
+  "genre": "string",
+  "artistId": "artistId",
+  "albumId": "albumId",
+  "releaseDate": "ISODate",
+  "audioUrl": "string",
+  "createdAt": "ISODate"
+}

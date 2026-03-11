@@ -1,0 +1,9 @@
+{
+  "albumId": "string",
+  "title": "string",
+  "artistId": "artistId",
+  "releaseDate": "ISODate",
+  "songs": ["songId"],
+  "coverImageUrl": "string",
+  "createdAt": "ISODate"
+}

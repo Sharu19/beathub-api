@@ -1,0 +1,9 @@
+{
+  "playlistId": "string",
+  "name": "string",
+  "userId": "userId",
+  "songs": ["songId"],
+  "isPublic": "boolean",
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate"
+}
